@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+  <title>WHACK A MOLE</title>
+<style>
+body {
+  background-image:url(grass.jpeg);
+
+}
+.hole {
+  border-radius:500%;
+  width: 250px;
+  height:150px;
+  background-color:#663300;
+  float:left;
+  margin:10px 50px 10px 50px;
+
+}
+table{
+  margin-left: 10%;
+  margin-top:3%;
+}
+.mole {
+  display:none;
+  position:relative;
+  left:25px;
+  top:-30px;
+  height:150%;
+}
+#myButton,#myButton2,#myButton1{
+  width: 100px;
+  height: 30px;
+  border-radius: 15%;
+}
+
+</style>
+</head>
+<body>
+<div id= wrapper>
+  <h1 style="text-align:center;font-size:50px">WHACK A MOLE</h1>
+  <button id='myButton' style="margin-left: 30%">Start</button>
+  <button id='myButton1' style="margin-left: 10%">Reset</button>
+  <button id='myButton2' style="margin-left: 10%">Stop</button>
+  <table>
+    <tr>
+      <td><div class=hole><img class=mole id=mole1 src=http://images.clipartpanda.com/mole-clip-art-mole.png /></div></td>
+      <td><div class=hole><img class=mole id=mole2 src=http://images.clipartpanda.com/mole-clip-art-mole.png /></div></td>
+      <td><div class=hole><img class=mole id=mole3 src=http://images.clipartpanda.com/mole-clip-art-mole.png /></div></td>
+      <td style="background-color: cornsilk;width:150px;padding-left: 3%;border: 10px solid black">
+        <h1 style="color:red">score</h1>
+          <div id="count" style="font-size: 30px;" >zero</div>
+      </td>
+    </tr>
+    <tr>
+        <td><div class=hole><img class=mole id=mole4 src=http://images.clipartpanda.com/mole-clip-art-mole.png /></div></td>
+        <td><div class=hole><img class=mole id=mole5 src=http://images.clipartpanda.com/mole-clip-art-mole.png /></div></td>
+        <td><div class=hole><img class=mole id=mole6 src=http://images.clipartpanda.com/mole-clip-art-mole.png /></div></td>
+      </tr>
+      <tr>
+          <td><div class=hole><img class=mole id=mole7 src=http://images.clipartpanda.com/mole-clip-art-mole.png /></div></td>
+          <td><div class=hole><img class=mole id=mole8 src=http://images.clipartpanda.com/mole-clip-art-mole.png /></div></td>
+          <td><div class=hole><img class=mole id=mole9 src=http://images.clipartpanda.com/mole-clip-art-mole.png /></div></td>
+        </tr>
+  </table>
+</div>
+
+<script type="text/javascript">
+  score=0
+  var div=document.getElementById("count")
+  var button = document.getElementById('myButton');
+  function generateNumber() {
+    number = (Math.floor(Math.random()*9)+1);
+    return number;
+  }
+  var counter=0;
+
+  var rest1 = document.getElementById('myButton2');
+  rest1.onclick = function stop(){
+    clearInterval(jay);
+  }
+  var rest = document.getElementById('myButton1');
+  rest.onclick = function resetit(){
+    score=0;
+    div.innerHTML=score
+  }
+
+  button.onclick= function playGame() {
+
+
+    jay=setInterval(function() {
+    generateNumber();
+
+    if(number<=1) {
+      document.getElementById("mole1").style.display="block";
+      setTimeout(function() {
+        document.getElementById("mole1").style.display="none";
+      },2000);
+
+    } else if(number>=1 && number<=2) {
+      document.getElementById("mole2").style.display="block";
+      setTimeout(function() {
+        document.getElementById("mole2").style.display="none";
+      },2000);
+
+    }else if(number>=2&&number<=3) {
+      document.getElementById("mole3").style.display="block";
+      setTimeout(function() {
+        document.getElementById("mole3").style.display="none";
+      },2000);
+
+    }else if(number>=3&&number<=4) {
+      document.getElementById("mole4").style.display="block";
+      setTimeout(function() {
+        document.getElementById("mole4").style.display="none";
+      },2000);
+
+    }else if(number>=4&&number<=5) {
+      document.getElementById("mole5").style.display="block";
+      setTimeout(function() {
+        document.getElementById("mole5").style.display="none";
+      },2000);
+
+    }else if(number>=5&&number<=6) {
+      document.getElementById("mole6").style.display="block";
+      setTimeout(function() {
+        document.getElementById("mole6").style.display="none";
+      },2000);
+
+    }else if(number>=6&&number<=7) {
+      document.getElementById("mole7").style.display="block";
+      setTimeout(function() {
+        document.getElementById("mole7").style.display="none";
+      },2000);
+
+    } else if(number>=7&&number<=8) {
+      document.getElementById("mole8").style.display="block";
+      setTimeout(function() {
+        document.getElementById("mole8").style.display="none";
+      },2000);
+
+    }else {
+      document.getElementById("mole9").style.display="block";
+      setTimeout(function() {
+        document.getElementById("mole9").style.display="none";
+      },2000);
+
+    }
+
+
+    document.getElementById("mole"+number).onclick=function() {
+    this.style.display='none';
+    score=score+1;
+
+     div.innerHTML=score
+    };
+    },2000);
+  };
+
+
+
+
+</script>
+
+</body>
+
+</html>
+
